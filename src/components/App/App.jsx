@@ -3,8 +3,10 @@ import { TodoList } from 'components/TodoList';
 import { Dropdown } from 'components/Dropdown';
 import { Counter } from 'components/Counter';
 import { ColorPicker } from 'components/ColorPicker';
+import { StickerList } from 'components/StickerList';
 import initialTodos from 'path/to/todos.json';
 import colorPicker from 'path/to/colorPicker.json';
+import stickers from 'path/to/stickers.json';
 
 export class App extends Component {
   state = {
@@ -42,6 +44,9 @@ export class App extends Component {
 
         <h2>Task-4: Color picker</h2>
         <ColorPicker options={colorPicker} />
+
+        <h2>StickerList</h2>
+        <StickerList stickers={stickers} />
       </>
     );
   }
