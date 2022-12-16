@@ -1,24 +1,22 @@
 import React, { Component } from 'react';
 import { TodoList } from 'components/TodoList';
 import axios from 'axios';
-// import { Dropdown } from 'components/Dropdown';
-// import { Counter } from 'components/Counter';
-// import { ColorPicker } from 'components/ColorPicker';
-// import { StickerList } from 'components/StickerList';
-// import { LoginForm } from 'components/Form/LoginForm/LoginForm';
-// import { SignUpForm } from 'components/Form/SignUpForm/SignUpForm';
+import { Dropdown } from 'components/Dropdown';
+import { Counter } from 'components/Counter';
+import { ColorPicker } from 'components/ColorPicker';
+import { StickerList } from 'components/StickerList';
+import { LoginForm } from 'components/Form/LoginForm/LoginForm';
+import { SignUpForm } from 'components/Form/SignUpForm/SignUpForm';
 import { TodoEditor } from 'components/TodoEditor';
 import { Filter } from 'components/TodoEditor/Filter';
-// import { Form } from 'components/Form/Nanoid/Form-nanoid';
-// import colorPicker from 'path/to/colorPicker.json';
-// import stickers from 'path/to/stickers.json';
+import { Form } from 'components/Form/Nanoid/Form-nanoid';
+import colorPicker from 'path/to/colorPicker.json';
+import stickers from 'path/to/stickers.json';
 import initialTodos from 'path/to/todos.json';
 import { nanoid } from 'nanoid';
 import { Modal } from 'components/Modal';
 import { Clock } from 'components/Clock';
 import { IconButton } from 'components/IconButton';
-import { ArticleList } from 'components/ArticleList';
-
 import { ReactComponent as AddIcon } from '../../icons/add.svg';
 
 const STORAGE_KEY = 'todos';
@@ -33,7 +31,6 @@ export class App extends Component {
     filter: '',
     showModal: false,
     stickers: this.props.initialStickers,
-    articles: [],
   };
 
   async componentDidMount() {
@@ -123,7 +120,6 @@ export class App extends Component {
     const totalTodoCount = todos.length;
     const completedTodoCount = this.calculateCompletedTodos();
     const visibleTodos = this.getVisibleTodos();
-    const { articles } = this.state;
 
     return (
       <>
@@ -157,32 +153,28 @@ export class App extends Component {
           </Modal>
         )}
 
-        <h2>ArticleList</h2>
-        {articles.length > 0 ? <ArticleList items={articles} /> : null}
+        <h2>Task-2: Dropdown</h2>
+        <Dropdown />
 
-        {/* <h2>Task-2: Dropdown</h2>
-        <Dropdown /> */}
+        <h2>Task-3: Counter</h2>
+        <Counter initialValue={0} />
 
-        {/* <h2>Task-3: Counter</h2>  
-        <Counter initialValue={0} /> */}
+        <h2>Task-4: Color picker</h2>
+        <ColorPicker options={colorPicker} />
 
-        {/* <h2>Task-4: Color picker</h2>
-        <ColorPicker options={colorPicker} /> */}
-
-        {/* <h2>StickerList</h2>
+        <h2>StickerList</h2>
         {stickers.length > 0 && (
           <StickerList items={stickers} onDelete={this.deleteSticker} />
-        )} */}
+        )}
 
-        {/* Form */}
-        {/* <h2>LoginForm</h2>
-        <LoginForm onSubmit={console.log} /> */}
+        <h2>LoginForm</h2>
+        <LoginForm onSubmit={console.log} />
 
-        {/* <h2>SignUpForm</h2>
-        <SignUpForm onSubmit={console.log} /> */}
+        <h2>SignUpForm</h2>
+        <SignUpForm onSubmit={console.log} />
 
-        {/* <h2>Form-Nanoid</h2>
-        <Form /> */}
+        <h2>Form-Nanoid</h2>
+        <Form />
       </>
     );
   }
